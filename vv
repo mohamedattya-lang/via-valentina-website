@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Via Valentina | Botanical Skincare for Balance and Radiance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Via Valentina creates handcrafted botanical skincare with pure oils, herbs and clays. Small batch, slow beauty, made with care in the Netherlands.">
+
+    <!-- All styling is inside this <style> block so you do not need style.css -->
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+            color: #222222;
+            background-color: #f7f5f0; /* warm neutral */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-muted {
+            background-color: #efe7d8; /* light warm beige */
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+            text-align: center;
+            color: #60574a;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.75rem;
+        }
+
+        /* Colours:
+           Primary botanical green: #305f4e
+           Gold accent: #c9a24f
+        */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: rgba(247, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e0d6c4;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1.5rem;
+        }
+
+        .brand-block {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-img {
+            height: 36px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-fallback {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .logo-fallback span:first-child {
+            color: #305f4e;
+        }
+
+        .logo-fallback span:last-child {
+            color: #c9a24f;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            font-size: 0.95rem;
+            color: #4a4237;
+            padding-bottom: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .main-nav a:hover {
+            color: #305f4e;
+            border-bottom-color: #c9a24f;
+        }
+
+        .nav-cta {
+            margin-left: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem 1.4rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.97rem;
+            font-weight: 600;
+            background-color: #305f4e;
+            color: #ffffff;
+            transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .btn:hover {
+            background-color: #264a3d;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: #305f4e;
+            border: 1px solid #305f4e;
+            box-shadow: none;
+        }
+
+        .btn-ghost:hover {
+            background-color: #e3efe9;
+        }
+
+        .btn.full-width {
+            width: 100%;
+        }
+
+        .hero {
+            padding: 6rem 0 4.5rem 0;
+            background: radial-gradient(circle at top left, #efe7d8 0, #f7f5f0 40%, #f7f5f0 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.4rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            color: #8b8172;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-subtitle {
+            color: #60574a;
+            margin-bottom: 1.6rem;
+            max-width: 520px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .hero-card {
+            background-color: #ffffff;
+            border-radius: 1.25rem;
+            padding: 1.7rem 1.6rem;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.11);
+            border: 1px solid #e2d7c7;
+        }
+
+        .hero-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+            color: #305f4e;
+        }
+
+        .hero-card p {
+            font-size: 0.95rem;
+            color: #60574a;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #4a4237;
+        }
+
+        .hero-list li {
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #c9a24f;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.1rem;
+            padding: 1.7rem 1.6rem;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2d7c7;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-top: 0.75rem;
+        }
+
+        .checklist li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-size: 0.85rem;
+            color: #305f4e;
+        }
+
+        .bullet-list {
+            margin-top: 0.7rem;
+            padding-left: 1.1rem;
+            color: #60574a;
+            font-size: 0.95rem;
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial blockquote {
+            font-style: italic;
+            margin-bottom: 0.8rem;
+            color: #4a4237;
+        }
+
+        .testimonial figcaption {
+            font-size: 0.9rem;
+            color: #8b8172;
+        }
+
+        .contact-list {
+            list-style: none;
+            margin-top: 1rem;
+            color: #4a4237;
+        }
+
+        .contact-list li {
+            margin-bottom: 0.4rem;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 0.88rem;
+            margin-bottom: 0.8rem;
+            color: #60574a;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            margin-top: 0.25rem;
+            padding: 0.55rem 0.7rem;
+            border-radius: 0.6rem;
+            border: 1px solid #d4c7b5;
+            font: inherit;
+            outline: none;
+            background-color: #faf7f2;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #305f4e;
+            background-color: #ffffff;
+        }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: #8b8172;
+            margin-top: 0.5rem;
+        }
+
+        .site-footer {
+            padding: 1.5rem 0 1.8rem 0;
+            background-color: #2a2620;
+            color: #e4dacb;
+            margin-top: 1rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            color: #d1ba82;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-to-top:hover {
+            color: #f1e2bf;
+        }
+
+        @media (max-width: 860px) {
+            .hero-grid,
+            .two-column {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container nav-container">
+        <div class="brand-block">
+            <!-- Logo image: upload viavalentina-logo.png into Replit and this will show -->
+            <img src="viavalentina-logo.png" alt="Via Valentina logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- Fallback text logo if image is not found -->
+            <div class="logo-fallback" style="display: none;">
+                <span>Via</span> <span>Valentina</span>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <a href="#about">About</a>
+            <a href="#collections">Collections</a>
+            <a href="#philosophy">Philosophy</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn btn-ghost nav-cta">Visit or contact us</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <p class="eyebrow">Handcrafted in small batches</p>
+                <h1>Botanical skincare for balance and radiance</h1>
+                <p class="hero-subtitle">
+                    Via Valentina creates gentle, effective skincare with pure plant oils, mineral rich clays
+                    and carefully chosen botanicals. Each piece is crafted slowly and intentionally, so your daily
+                    ritual becomes a moment of calm.
+                </p>
+                <div class="hero-actions">
+                    <a href="#collections" class="btn">Explore the collection</a>
+                    <a href="#about" class="btn btn-ghost">Meet Via Valentina</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h2>Slow beauty, made with care</h2>
+                <p>
+                    Every bar, balm and elixir is blended, poured and finished by hand.
+                    We use thoughtful formulas with a focus on skin comfort, texture and scent,
+                    without unnecessary complexity.
+                </p>
+                <ul class="hero-list">
+                    <li>Plant based ingredients and gentle clays</li>
+                    <li>Small batch production in the Netherlands</li>
+                    <li>Balanced fragrances with a soft, natural feel</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container two-column">
+            <div>
+                <h2>About Via Valentina</h2>
+                <p>
+                    Via Valentina is a small, independent skincare studio that brings together
+                    a love for plants, artisanal making and gentle self care. The focus is on solid,
+                    practical products that feel special in the hand and kind on the skin.
+                </p>
+                <p>
+                    We work with clays, cold pressed oils, botanical extracts and carefully selected
+                    fragrance blends. Each formula is tested and refined with attention to texture,
+                    rinse off, skin feel and scent balance.
+                </p>
+                <p>
+                    The aim is simple. Honest, beautiful products that you enjoy using every day.
+                </p>
+            </div>
+            <div class="card">
+                <h3>At a glance</h3>
+                <ul class="checklist">
+                    <li>Artisan, small batch production</li>
+                    <li>Botanical wash bars, face care and body care</li>
+                    <li>Thoughtful use of clays, oils and herbal extracts</li>
+                    <li>Made in the Netherlands with a calm, minimalist aesthetic</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-muted" id="collections">
+        <div class="container">
+            <h2 class="section-title">Collections</h2>
+            <p class="section-subtitle">
+                A curated line of solid wash bars, facial care and rich body treats.
+                Each collection piece has its own quiet story, colour palette and botanical focus.
+            </p>
+
+            <div class="cards-grid">
+                <article class="card">
+                    <h3>Botanical wash bars</h3>
+                    <p>
+                        Solid cleansing bars crafted with mild surfactants, nourishing butters, clays
+                        and botanical accents. Designed for a creamy lather, easy rinse and soft skin feel.
+                    </p>
+                    <ul class="bullet-list">
+                        <li>Signature bars like Nordlys Glacier and Savanna Bloom</li>
+                        <li>Coloured with clays rather than synthetic dyes</li>
+                        <li>Fragrances inspired by landscapes and seasons</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3>Face and body care</h3>
+                    <p>
+                        Simple, focused formulas for daily care. From whipped shea body butters
+                        to face elixirs, created to layer comfortably and leave the skin feeling
+                        nourished without heaviness.
+                    </p>
+                    <ul class="bullet-list">
+                        <li>Whipped body butters with a soft, cloud like texture</li>
+                        <li>Oil based elixirs with selected plant oils</li>
+                        <li>Press and balm formats for travel friendly care</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3>Gifts and market editions</h3>
+                    <p>
+                        Seasonal sets and limited editions especially prepared for markets and fairs.
+                        These highlight particular clays, herbs or scent profiles in a more playful way.
+                    </p>
+                    <ul class="bullet-list">
+                        <li>Curated gift sets ready to offer</li>
+                        <li>Coordinated colour stories across bars and butters</li>
+                        <li>Possibility for small custom batches on request</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="philosophy">
+        <div class="container two-column">
+            <div>
+                <h2>Our approach to skincare</h2>
+                <p>
+                    Via Valentina is guided by a slow, considered way of working.
+                    We prefer shorter ingredient lists with a clear purpose and a
+                    balance between sensory pleasure and practical function.
+                </p>
+                <p>
+                    We pay attention to:
+                </p>
+                <ul class="bullet-list">
+                    <li>Texture that feels pleasant in the hand and on the skin</li>
+                    <li>Balanced scent profiles that support rather than overwhelm</li>
+                    <li>Colour created by clays and botanical elements where possible</li>
+                    <li>Formulas that are enjoyable to use and simple to understand</li>
+                </ul>
+            </div>
+            <div class="card testimonial">
+                <blockquote>
+                    “From the first use, the bars and body butters felt like a small daily ritual.
+                    Gentle on my skin, with scents that are present but never too strong.”
+                </blockquote>
+                <figcaption>Feedback from a Via Valentina client</figcaption>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-muted" id="contact">
+        <div class="container two-column">
+            <div>
+                <h2>Contact and markets</h2>
+                <p>
+                    Via Valentina is based in the Netherlands. You can meet the collection
+                    in person at selected markets and fairs, or reach out for questions about
+                    products, stockists or small custom batches.
+                </p>
+                <p>
+                    For wholesale or collaboration enquiries, you can send a short introduction
+                    and we will gladly look at the possibilities together.
+                </p>
+                <ul class="contact-list">
+                    <li><strong>Email:</strong> info@viavalentina.com</li>
+                    <li><strong>Instagram:</strong> @viavalentina (example, adjust to your real handle)</li>
+                    <li><strong>Location:</strong> Netherlands</li>
+                </ul>
+            </div>
+
+            <form class="card contact-form">
+                <h3>Send a message</h3>
+                <label>
+                    Name
+                    <input type="text" name="name" placeholder="Your name">
+                </label>
+                <label>
+                    Email
+                    <input type="email" name="email" placeholder="you@example.com">
+                </label>
+                <label>
+                    Message
+                    <textarea name="message" rows="4" placeholder="Tell us what you are looking for."></textarea>
+                </label>
+                <button type="submit" class="btn full-width">Send</button>
+                <p class="form-note">
+                    This is a visual form. Your web developer can connect it to your email or contact system.
+                </p>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>© <span id="year"></span> Via Valentina. All rights reserved.</p>
+        <a href="#home" class="back-to-top">Back to top ↑</a>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
